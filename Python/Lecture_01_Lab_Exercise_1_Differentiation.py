@@ -1,4 +1,16 @@
-# Import necessary libraries for numerical computations and plotting.
+'''
+========================================================================
+        ╦ ╦┌─┐┌─┐┌─┐┌─┐┌┬┐  ╔╦╗┌─┐┌─┐┌┬┐┬ ┬  ╔╗ ┌─┐┬  ┌─┐┬ ┬┌─┐
+        ╠═╣│ │└─┐└─┐├─┤│││  ║║║├─┤│ ┬ ││└┬┘  ╠╩╗├─┤│  ├─┤├─┤├─┤
+        ╩ ╩└─┘└─┘└─┘┴ ┴┴ ┴  ╩ ╩┴ ┴└─┘─┴┘ ┴   ╚═╝┴ ┴┴─┘┴ ┴┴ ┴┴ ┴
+========================================================================
+# Author: Hossam Magdy Balaha
+# Initial Creation Date: May 14th, 2025
+# Last Modification Date: May 26th, 2025
+# Permissions and Citation: Refer to the README file.
+'''
+
+# Import necessary libraries.
 import numpy as np  # Library for numerical operations.
 import matplotlib.pyplot as plt  # Library for creating plots.
 from sympy import symbols, diff, lambdify  # Library for symbolic mathematics.

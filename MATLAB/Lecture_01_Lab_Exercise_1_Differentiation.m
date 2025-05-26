@@ -1,3 +1,14 @@
+% ===========================================================================
+%         ╦ ╦┌─┐┌─┐┌─┐┌─┐┌┬┐  ╔╦╗┌─┐┌─┐┌┬┐┬ ┬  ╔╗ ┌─┐┬  ┌─┐┬ ┬┌─┐
+%         ╠═╣│ │└─┐└─┐├─┤│││  ║║║├─┤│ ┬ ││└┬┘  ╠╩╗├─┤│  ├─┤├─┤├─┤
+%         ╩ ╩└─┘└─┘└─┘┴ ┴┴ ┴  ╩ ╩┴ ┴└─┘─┴┘ ┴   ╚═╝┴ ┴┴─┘┴ ┴┴ ┴┴ ┴
+% ===========================================================================
+%
+% Author: Hossam Magdy Balaha
+% Initial Creation Date: May 14th, 2025
+% Last Modification Date: May 26th, 2025
+% Permissions and Citation: Refer to the README file.
+
 % Import necessary toolboxes (Symbolic Math Toolbox is required for symbolic computations).
 syms x;  % Define the symbolic variable 'x'.
 

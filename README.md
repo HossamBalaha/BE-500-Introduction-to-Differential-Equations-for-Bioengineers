@@ -19,6 +19,7 @@ This series is your gateway to the fascinating world of applying differential eq
 **Videos (Summer 2025)**:
 
 1. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 01](https://youtu.be/L3N21-eoeyw)
+2. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 02](https://youtu.be/GTeuZPRCO-A)
 
 ## Code
 
