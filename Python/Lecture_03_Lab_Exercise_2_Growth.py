@@ -6,7 +6,7 @@
 ========================================================================
 # Author: Hossam Magdy Balaha
 # Initial Creation Date: May 26th, 2025
-# Last Modification Date: May 26th, 2025
+# Last Modification Date: May 27th, 2025
 # Permissions and Citation: Refer to the README file.
 '''
 
@@ -33,7 +33,7 @@ P = Function("P")(tSym)  # Dependent variable (population size).
 C1 = symbols("C1")  # Constant of integration.
 
 # Define the logistic differential equation symbolically.
-logisticEquation = P.diff(tSym) - r * P * (1 - P / K)
+logisticEquation = P.diff(tSym) - r * P * (1.0 - P / K)
 
 # Solve the logistic equation analytically using dsolve from sympy.
 analyticalSolution = dsolve(logisticEquation, P)

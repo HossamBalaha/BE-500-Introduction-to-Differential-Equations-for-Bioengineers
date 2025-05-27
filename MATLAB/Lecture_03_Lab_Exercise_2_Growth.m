@@ -6,7 +6,7 @@
 %
 % Author: Hossam Magdy Balaha
 % Initial Creation Date: May 26th, 2025
-% Last Modification Date: May 26th, 2025
+% Last Modification Date: May 27th, 2025
 % Permissions and Citation: Refer to the README file.
 
 % Import necessary libraries (Symbolic Math Toolbox and ODE solver).
@@ -51,7 +51,7 @@ tAnalytical = linspace(0, 20, 100);
 PAnalytical = double(subs(specificSolution, t, tAnalytical));
 
 % Solve the ODE numerically over the interval [0, 20] using ode45.
-f = @(t, P) r * P .* (1 - P / K); % Define the logistic growth equation as a function.
+f = @(t, P) r * P .* (1.0 - P / K); % Define the logistic growth equation as a function.
 % Initial condition P(0) = P0.
 [tNumerical, PNumerical] = ode45(f, [0, 20], P0); 
 

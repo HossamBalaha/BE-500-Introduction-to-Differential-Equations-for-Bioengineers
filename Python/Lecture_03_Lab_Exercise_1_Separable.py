@@ -6,7 +6,7 @@
 ========================================================================
 # Author: Hossam Magdy Balaha
 # Initial Creation Date: May 26th, 2025
-# Last Modification Date: May 26th, 2025
+# Last Modification Date: May 27th, 2025
 # Permissions and Citation: Refer to the README file.
 '''
 
@@ -23,6 +23,7 @@ def SeparableEquation(x, y):
 
 
 # Set the initial condition y(0) = 1 as a list.
+x0 = 0
 y0 = [1]
 
 x = symbols("x")  # Define a symbol 't' for time or independent variable.
@@ -44,7 +45,7 @@ print("Analytical General Solution:", analyticalSolution)
 analyticalSolution = analyticalSolution.subs({y: y0[0]})
 
 # Solve for the constant of integration C1 using the initial condition.
-constValue = solve(analyticalSolution.rhs.subs(x, 0) - y0[0], C1)[0]
+constValue = solve(analyticalSolution.rhs.subs(x, x0) - y0[0], C1)[0]
 
 # Substitute the constant of integration C1 back into the analytical solution.
 print("Value of Constant:", constValue)
