@@ -6,7 +6,7 @@
 ========================================================================
 # Author: Hossam Magdy Balaha
 # Initial Creation Date: May 26th, 2025
-# Last Modification Date: May 27th, 2025
+# Last Modification Date: June 4th, 2025
 # Permissions and Citation: Refer to the README file.
 '''
 
@@ -37,6 +37,25 @@ separableEquation = y.diff(x) - x * y
 
 # Solve the separable equation analytically using dsolve from sympy.
 analyticalSolution = dsolve(separableEquation, y)
+
+# This block is added to handle cases where the solution might be a list.
+# For example, dy/dx = x/y can have multiple solutions.
+# Check if the solution is a list.
+if (isinstance(analyticalSolution, list)):
+  print("Analytical Solution is a list, please pick one of the solutions.")
+  print("Length of Analytical Solution:", len(analyticalSolution))
+  # Print each solution with its index.
+  for i, sol in enumerate(analyticalSolution):
+    print(f"Solution {i + 1}:", sol)
+  # Prompt the user to select a solution if multiple solutions exist.
+  selection = input("Select the solution number (1 or 2): ")
+  if (selection.isdigit()):
+    selection = int(selection) - 1  # Convert to zero-based index.
+  else:
+    print("Invalid selection, defaulting to the first solution.")
+    selection = 0
+  # Select the chosen solution based on user input.
+  analyticalSolution = analyticalSolution[selection]
 
 # Print the analytical solution to the console.
 print("Analytical General Solution:", analyticalSolution)
