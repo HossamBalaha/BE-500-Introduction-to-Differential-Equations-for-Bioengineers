@@ -53,7 +53,7 @@ if zeta < 1
     omegad = sqrt(omega0^2 - gamma^2); % Calculate the damped natural frequency.
     x = exp(-gamma * t) .* (A * cos(omegad * t) + B * sin(omegad * t)); % Compute displacement.
 
-    % Critically damped case: zeta == 1.
+% Critically damped case: zeta == 1.
 elseif zeta == 1
     fprintf('\nCritically Damped Oscillation\n');
     fprintf('Solution: x(t) = (A + B * t) * exp(-gamma * t)\n');
@@ -61,7 +61,7 @@ elseif zeta == 1
 
     x = (A + B * t) .* exp(-gamma * t); % Compute displacement.
 
-    % Overdamped case: zeta > 1.
+% Overdamped case: zeta > 1.
 else
     fprintf('\nOverdamped Oscillation\n');
     fprintf('Solution: x(t) = A * exp(r1 * t) + B * exp(r2 * t)\n');

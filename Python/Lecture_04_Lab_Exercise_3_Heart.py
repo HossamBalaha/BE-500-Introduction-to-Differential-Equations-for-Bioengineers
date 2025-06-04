@@ -105,7 +105,7 @@ for key, params in valuesDict.items():
       F0=params["F0"],  # Forcing amplitude.
       omegaF=params["OmegaF"],  # Forcing frequency.
     ),
-    tSpan,  # Initial conditions for the oscillation.
+    tSpan,  # Time span for the simulation.
     y0,  # Initial conditions for the oscillation.
     t_eval=tEval,  # Time points at which to store the computed solution.
   )
