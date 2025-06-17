@@ -6,15 +6,15 @@
 %
 % Author: Hossam Magdy Balaha
 % Initial Creation Date: June 10th, 2025
-% Last Modification Date: June 12th, 2025
+% Last Modification Date: June 17th, 2025
 % Permissions and Citation: Refer to the README file.
 
 % Define parameters for the knee model.
-m = 1.0;         % Mass of the limb (kg)
-c = 0.5;         % Damping coefficient (Ns/m)
-k = 4.0;         % Spring constant (N/m)
-F0 = 2.0;        % Amplitude of external force
-omegaF = 3.0;    % Frequency of external force
+m = 1.0;         % Mass of the limb (kg).
+c = 0.5;         % Damping coefficient (Ns/m).
+k = 4.0;         % Spring constant (N/m).
+F0 = 2.0;        % Amplitude of external force.
+omegaF = 3.0;    % Frequency of external force.
 
 % Initial conditions.
 y0 = [0.1; 0.0];  % y(1) = displacement, y(2) = velocity.
@@ -62,10 +62,6 @@ ylabel('Displacement x(t)');
 title('Knee Model: Analytical vs Numerical Solution');
 grid on;
 legend('show');
-
-% ==============================================================
-% =============== Optional: Save the Figure ===================
-% ==============================================================
 
 % Save the plot as a PNG file.
 saveas(gcf, 'Lecture_05_Lab_Exercise_1_Knee.png');
