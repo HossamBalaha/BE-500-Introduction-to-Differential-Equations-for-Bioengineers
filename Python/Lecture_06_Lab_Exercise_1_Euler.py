@@ -6,7 +6,7 @@
 ========================================================================
 # Author: Hossam Magdy Balaha
 # Initial Creation Date: June 17th, 2025
-# Last Modification Date: June 17th, 2025
+# Last Modification Date: June 18th, 2025
 # Permissions and Citation: Refer to the README file.
 """
 
@@ -25,7 +25,7 @@ def EulerMethod(C0, k, h, tSpan):
   C0 (float): Initial concentration of the drug in mg/L.
   k (float): Rate constant for drug elimination in 1/h.
   h (float): Time step for Euler's method in hours.
-  tSpan (tuple): Time span for the simulation as (start_time, end_time).
+  tSpan (tuple): Time span for the simulation as (start time, end time).
 
   Returns:
   tEuler (numpy.ndarray): Time vector for Euler's method.

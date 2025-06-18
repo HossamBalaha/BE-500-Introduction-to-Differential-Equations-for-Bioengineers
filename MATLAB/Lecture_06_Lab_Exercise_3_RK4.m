@@ -6,7 +6,7 @@
 %
 % Author: Hossam Magdy Balaha
 % Initial Creation Date: June 17th, 2025
-% Last Modification Date: June 17th, 2025
+% Last Modification Date: June 18th, 2025
 % Permissions and Citation: Refer to the README file.
 
 % Define simulation parameters.
@@ -78,9 +78,9 @@ y = zeros(size(t));
 y(1) = C0;
 for i = 1:length(t)-1
   slope1 = -k * y(i);
-  y_pred = y(i) + h * slope1;
-  slope2 = -k * y_pred;
-  y(i+1) = y(i) + h * (slope1 + slope2)/2;
+  yPred = y(i) + h * slope1;
+  slope2 = -k * yPred;
+  y(i+1) = y(i) + h * (slope1 + slope2) / 2.0;
 end
 end
 

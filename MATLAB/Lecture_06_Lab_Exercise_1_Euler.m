@@ -6,7 +6,7 @@
 %
 % Author: Hossam Magdy Balaha
 % Initial Creation Date: June 17th, 2025
-% Last Modification Date: June 17th, 2025
+% Last Modification Date: June 18th, 2025
 % Permissions and Citation: Refer to the README file.
 
 % Define simulation parameters.
@@ -23,7 +23,7 @@ tExact = linspace(tSpan(1), tSpan(end), 100);
 CExact = C0 * exp(-k * tExact);
 
 % Calculate absolute error between Euler and exact solution.
-absError = abs(CEuler - interp1(tExact, CExact, tRK4));
+absError = abs(CEuler - interp1(tExact, CExact, tEuler));
 
 % Print simulation parameters.
 fprintf('Parameters used in the simulation:\n');
@@ -34,10 +34,10 @@ fprintf('Time span: %.2f to %.2f hours\n\n', tSpan(1), tSpan(2));
 
 % Display results as table.
 fprintf('Time\tEuler\tExact\tAbs. Error\n');
-for i = 1:length(tRK4)
+for i = 1:length(tEuler)
   fprintf('%.2f\t%.3f\t%.3f\t%.3f\n', ...
-    tRK4(i), CEuler(i), ...
-    interp1(tExact, CExact, tRK4(i)), absError(i));
+    tEuler(i), CEuler(i), ...
+    interp1(tExact, CExact, tEuler(i)), absError(i));
 end
 
 % Create figure.

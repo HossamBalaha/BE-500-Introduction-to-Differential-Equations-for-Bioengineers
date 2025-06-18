@@ -6,7 +6,7 @@
 %
 % Author: Hossam Magdy Balaha
 % Initial Creation Date: June 17th, 2025
-% Last Modification Date: June 17th, 2025
+% Last Modification Date: June 18th, 2025
 % Permissions and Citation: Refer to the README file.
 
 % Define simulation parameters.
@@ -24,7 +24,7 @@ tExact = linspace(tSpan(1), tSpan(end), 100);
 CExact = C0 * exp(-k * tExact);
 
 % Calculate absolute error between Improved Euler and exact solution.
-absError = abs(CImprovedEuler - interp1(tExact, CExact, tRK4));
+absError = abs(CImprovedEuler - interp1(tExact, CExact, tEuler));
 
 % Print simulation parameters.
 fprintf('Parameters used in the simulation:\n');
@@ -35,10 +35,10 @@ fprintf('Time span: %.2f to %.2f hours\n\n', tSpan(1), tSpan(2));
 
 % Display results as table.
 fprintf('Time\tEuler\tImpr. Euler\tExact\tAbs. Error\n');
-for i = 1:length(tRK4)
+for i = 1:length(tEuler)
   fprintf('%.2f\t%.3f\t%.3f\t%.3f\t%.3f\n', ...
-    tRK4(i), CEuler(i), CImprovedEuler(i), ...
-    interp1(tExact, CExact, tRK4(i)), absError(i));
+    tEuler(i), CEuler(i), CImprovedEuler(i), ...
+    interp1(tExact, CExact, tEuler(i)), absError(i));
 end
 
 % Create figure.
@@ -76,8 +76,8 @@ y = zeros(size(t));
 y(1) = C0;
 for i = 1:length(t)-1
   slope1 = -k * y(i);
-  y_pred = y(i) + h * slope1;
-  slope2 = -k * y_pred;
-  y(i+1) = y(i) + h * (slope1 + slope2)/2;
+  yPred = y(i) + h * slope1;
+  slope2 = -k * yPred;
+  y(i+1) = y(i) + h * (slope1 + slope2) / 2.0;
 end
 end
