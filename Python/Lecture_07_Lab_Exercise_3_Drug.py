@@ -5,13 +5,14 @@
         ╩ ╩└─┘└─┘└─┘┴ ┴┴ ┴  ╩ ╩┴ ┴└─┘─┴┘ ┴   ╚═╝┴ ┴┴─┘┴ ┴┴ ┴┴ ┴
 ========================================================================
 # Author: Hossam Magdy Balaha
-# Initial Creation Date: June 26th, 2025
-# Last Modification Date: June 26th, 2025
+# Initial Creation Date: June 27th, 2025
+# Last Modification Date: June 27th, 2025
 # Permissions and Citation: Refer to the README file.
 """
 
 # Import necessary libraries.
 from sympy import symbols, Function, Heaviside, laplace_transform, inverse_laplace_transform, Eq, solve
+import matplotlib.pyplot as plt
 
 # Equation should be:
 # dC/dt + k * C = R(t)
@@ -55,3 +56,25 @@ print(f"Laplace Transform of C(s) with initial condition:\n{lapCs}\n")
 # Inverse Laplace Transform to find C(t).
 Ct = inverse_laplace_transform(lapCs, s, t)
 print(f"Concentration of the drug C(t):\n{Ct}")
+
+# Create a time vector for plotting.
+timeVector = [i / 10 for i in range(100)]  # From 0 to 10 hours in steps of 0.1 hours.
+# Calculate the concentration of the drug at each time point.
+concentration = [Ct.subs(t, time) for time in timeVector]
+# Plot the concentration of the drug over time.
+plt.figure()
+plt.plot(timeVector, concentration, label="C(t)", color="blue")
+plt.title("Concentration of the Drug Over Time")
+plt.xlabel("Time (hours)")
+plt.ylabel("Concentration (mg/L)")
+plt.tight_layout()
+plt.grid()
+
+# Save the plot as a PNG file with high resolution.
+plt.savefig(
+  "Lecture_07_Lab_Exercise_3_Drug.png",
+  dpi=300,
+  bbox_inches="tight",
+)
+# Display the plot.
+plt.show()
