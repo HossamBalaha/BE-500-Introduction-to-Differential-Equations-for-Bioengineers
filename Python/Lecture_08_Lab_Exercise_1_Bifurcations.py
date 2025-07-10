@@ -280,7 +280,7 @@ def HopfBifurcation():
   for I in IValues:
     # Solve for steady-state solutions (dv/dt = 0, dw/dt = 0).
     sol = fsolve(fitzhughNagumo, [0, 0], args=(I,))
-    if np.allclose(fitzhughNagumo(sol, I), [0, 0]):  # Check if solution is valid.
+    if (np.allclose(fitzhughNagumo(sol, I), [0, 0])):  # Check if solution is valid.
       equilibria.append((I, sol[0]))  # Store membrane potential (v).
 
   # Convert equilibria to a numpy array for easier plotting.
@@ -326,4 +326,4 @@ def HopfBifurcation():
 # SaddleNodeBifurcation()
 # TranscriticalBifurcation()
 # PitchforkBifurcation()
-HopfBifurcation()
+# HopfBifurcation()
