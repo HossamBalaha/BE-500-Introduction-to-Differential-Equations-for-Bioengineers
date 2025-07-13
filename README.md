@@ -34,6 +34,11 @@ This series is your gateway to the fascinating world of applying differential eq
 3. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 03](https://youtu.be/dqMObTKBIs4)
 4. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 04](https://youtu.be/WLHyKi5Pmf4)
 5. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 05](https://youtu.be/Ixhy2mRDSyE)
+6. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 06](https://youtu.be/y8aPzrKfP5k)
+7. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 07](https://youtu.be/6r3msjLkcdw)
+8. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 08](https://youtu.be/CzJw_8mZAzM)
+9. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 09](https://youtu.be/wbUke2zrSZ0)
+10. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 10]()
 
 ## Code
 
