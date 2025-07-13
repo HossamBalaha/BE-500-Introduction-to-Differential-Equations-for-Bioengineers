@@ -6,7 +6,7 @@
 ========================================================================
 # Author: Hossam Magdy Balaha
 # Initial Creation Date: July 9th, 2025
-# Last Modification Date: July 9th, 2025
+# Last Modification Date: July 12th, 2025
 # Permissions and Citation: Refer to the README file.
 """
 
@@ -34,7 +34,7 @@ def HillEquation(x, beta=1.0, n=2, k=1.0, gamma=0.1):
   return result
 
 
-def HillEquationDerivative(t, x, beta=1.0, n=2, k=1.0, gamma=0.1):
+def HillEquationDerivative(x, beta=1.0, n=2, k=1.0, gamma=0.1):
   """
   Derivative of the Hill equation for use in ODE solvers.
 
@@ -97,13 +97,13 @@ dt = 0.01  # Time step size.
 f = lambda x: HillEquation(x, beta, n, k, gamma)
 t, x = RungeKutta4(f, x0, tSpan, dt)
 # Compute the response of the Hill equation.
-dxValues = [HillEquation(xI, beta, n, k, gamma) for xI in x]
+dxValues = np.array([HillEquation(xI, beta, n, k, gamma) for xI in x])
 
 # Find the equilibrium points.
 equilibriumPoints = []
 for i in range(0, 100):
   equilibrium = fsolve(lambda x: HillEquation(x, beta, n, k, gamma), i)
-  if ((equilibrium[0] >= 0) and (not any(np.isclose(equilibrium, e) for e in equilibriumPoints))):
+  if (not any(np.isclose(equilibrium, e) for e in equilibriumPoints)):
     equilibriumPoints.append(equilibrium[0])
 
 # Print the equilibrium points.
@@ -112,10 +112,10 @@ print("Equilibrium Points:", equilibriumPoints)
 # Check stability of equilibria.
 stability = []
 for eq in equilibriumPoints:
-  derivativeAtEq = HillEquationDerivative(0, eq, beta, n, k, gamma)
-  if (derivativeAtEq < 0):
+  J = HillEquationDerivative(eq, beta, n, k, gamma)
+  if (J < 0):
     stability.append((eq, "Stable"))
-  elif (derivativeAtEq > 0):
+  elif (J > 0):
     stability.append((eq, "Unstable"))
   else:
     stability.append((eq, "Neutral"))
@@ -149,17 +149,17 @@ plt.tight_layout()  # Adjust layout to prevent overlap.
 
 # Plot the bifurcation diagram by changing the parameter k and n = 1.
 n = 1  # Set n to 1 for the bifurcation diagram.
-kValues = np.linspace(0.1, 15, 500)  # Range of k values from 0.1 to 5.0.
+kValues = np.linspace(0.1, 15, 500)  # Range of k values from 0.1 to 15.
 stable, unstable = [], []  # Lists to hold stable and unstable points.
 for kValue in kValues:
   eqPoints = []
   for i in range(0, 100):
     sol = fsolve(lambda x: HillEquation(x, beta, n, kValue, gamma), i)
-    if ((sol[0] >= 0) and (not any(np.isclose(sol, e) for e in eqPoints))):
+    if (not any(np.isclose(sol, e) for e in eqPoints)):
       eqPoints.append(sol[0])
   if (eqPoints):
     for eq in eqPoints:
-      derivativeAtEq = HillEquationDerivative(0, eq, beta, n, kValue, gamma)
+      derivativeAtEq = HillEquationDerivative(eq, beta, n, kValue, gamma)
       if (derivativeAtEq < 0):
         stable.append((kValue, eq))  # Append stable equilibrium points.
       elif (derivativeAtEq > 0):
@@ -192,7 +192,7 @@ for nValue in nValues:
       eqPoints.append(sol[0])
   if (eqPoints):
     for eq in eqPoints:
-      derivativeAtEq = HillEquationDerivative(0, eq, beta, nValue, k, gamma)
+      derivativeAtEq = HillEquationDerivative(eq, beta, nValue, k, gamma)
       if (derivativeAtEq < 0):
         stableN.append((nValue, eq))  # Append stable equilibrium points.
       elif (derivativeAtEq > 0):
