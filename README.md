@@ -1,6 +1,12 @@
-# BE 500 Introduction to Differential Equations for Bioengineers (Spring 2026)
+# BE 500 Differential Equations for Bioengineers (Spring 2026)
 
-Welcome to the BE 500: Introduction to Differential Equations for Bioengineers course.
+<!-- Badges: repository stars, python version, requirements file. -->
+[![GitHub stars](https://img.shields.io/github/stars/HossamBalaha/BE-500-Introduction-to-Differential-Equations-for-Bioengineers?style=social)](https://github.com/HossamBalaha/BE-500-Introduction-to-Differential-Equations-for-Bioengineers)
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
+[![Requirements](https://img.shields.io/badge/requirements-requirements.txt-lightgrey)](requirements.txt)
+[![License](https://img.shields.io/badge/license-Copyright%20All%20Rights%20Reserved-red)](LICENSE)
+
+Welcome to the BE 500: Differential Equations for Bioengineers course.
 
 Differential equations are powerful mathematical tools used to model and analyze dynamic systems that change over time.
 In bioengineering, these equations play a critical role in understanding biological processes, medical systems, and
@@ -23,22 +29,31 @@ future research and innovation in the field.
 > happy to fix them and update the repository accordingly. Your feedback is highly appreciated and will help me improve
 > the quality of the content provided in this series.
 
+## Table of Contents.
+
+- [Full Playlist and Videos](#full-playlist-and-videos).
+- [Code](#code).
+- [Requirements](#requirements).
+- [Usage](#usage).
+- [Copyright and License](#copyright-and-license).
+- [Contact](#contact).
+
 ## Full Playlist and Videos
 
 This series is your gateway to the fascinating world of applying differential equations using Python and MATLAB.
 
 **Videos (Summer 2025)**:
 
-1. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 01](https://youtu.be/L3N21-eoeyw)
-2. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 02](https://youtu.be/GTeuZPRCO-A)
-3. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 03](https://youtu.be/dqMObTKBIs4)
-4. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 04](https://youtu.be/WLHyKi5Pmf4)
-5. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 05](https://youtu.be/Ixhy2mRDSyE)
-6. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 06](https://youtu.be/y8aPzrKfP5k)
-7. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 07](https://youtu.be/6r3msjLkcdw)
-8. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 08](https://youtu.be/CzJw_8mZAzM)
-9. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 09](https://youtu.be/wbUke2zrSZ0)
-10. [BE 500: Introduction to Differential Equations for Bioengineers - Lecture 10](https://youtu.be/0j6MsCJX3mI)
+1. [BE 500: Differential Equations for Bioengineers - Lecture 01](https://youtu.be/L3N21-eoeyw)
+2. [BE 500: Differential Equations for Bioengineers - Lecture 02](https://youtu.be/GTeuZPRCO-A)
+3. [BE 500: Differential Equations for Bioengineers - Lecture 03](https://youtu.be/dqMObTKBIs4)
+4. [BE 500: Differential Equations for Bioengineers - Lecture 04](https://youtu.be/WLHyKi5Pmf4)
+5. [BE 500: Differential Equations for Bioengineers - Lecture 05](https://youtu.be/Ixhy2mRDSyE)
+6. [BE 500: Differential Equations for Bioengineers - Lecture 06](https://youtu.be/y8aPzrKfP5k)
+7. [BE 500: Differential Equations for Bioengineers - Lecture 07](https://youtu.be/6r3msjLkcdw)
+8. [BE 500: Differential Equations for Bioengineers - Lecture 08](https://youtu.be/CzJw_8mZAzM)
+9. [BE 500: Differential Equations for Bioengineers - Lecture 09](https://youtu.be/wbUke2zrSZ0)
+10. [BE 500: Differential Equations for Bioengineers - Lecture 10](https://youtu.be/0j6MsCJX3mI)
 
 ## Code
 
@@ -46,7 +61,7 @@ All code used in the lectures will be available in this GitHub
 repository (https://github.com/HossamBalaha/BE-500-Introduction-to-Differential-Equations-for-Bioengineers) in
 the "MATLAB" and "Python" folders.
 
-## Requirements.
+## Requirements
 
 Python dependencies used by the lecture scripts are listed in `requirements.txt` at the project root.
 Install them into your environment with the following command from the project root.
@@ -55,7 +70,7 @@ Install them into your environment with the following command from the project r
 pip install -r requirements.txt
 ```
 
-## Usage.
+## Usage
 
 The following example shows how to run one of the Python lecture scripts on Windows using `cmd.exe`.
 This example runs `Lecture_01_Lab_Exercise_1_Differentiation.py` which computes a symbolic derivative and plots the
