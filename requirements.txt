@@ -1,0 +1,8 @@
+# Requirements for the course Python examples.
+# These packages are used by the Python lecture scripts for numerical work and plotting.
+# Install with: pip install -r requirements.txt.
+
+numpy<2
+matplotlib>=3.10.*
+scipy>=1.15.*
+sympy>=1.14.*

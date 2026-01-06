@@ -1,4 +1,4 @@
-# BE 500 Introduction to Differential Equations for Bioengineers (Summer 2025)
+# BE 500 Introduction to Differential Equations for Bioengineers (Spring 2026)
 
 Welcome to the BE 500: Introduction to Differential Equations for Bioengineers course.
 
@@ -46,13 +46,51 @@ All code used in the lectures will be available in this GitHub
 repository (https://github.com/HossamBalaha/BE-500-Introduction-to-Differential-Equations-for-Bioengineers) in
 the "MATLAB" and "Python" folders.
 
+## Requirements.
+
+Python dependencies used by the lecture scripts are listed in `requirements.txt` at the project root.
+Install them into your environment with the following command from the project root.
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage.
+
+The following example shows how to run one of the Python lecture scripts on Windows using `cmd.exe`.
+This example runs `Lecture_01_Lab_Exercise_1_Differentiation.py` which computes a symbolic derivative and plots the
+results.
+
+1. Create and activate a virtual environment (recommended for isolation).
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+2. Install the project dependencies from `requirements.txt`.
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Run the lecture script from the project root.
+
+```bash
+python Python\Lecture_01_Lab_Exercise_1_Differentiation.py
+```
+
+Notes.
+
+- Replace the script path to run other lecture examples, for example `Python\Lecture_01_Lab_Exercise_2_Integration.py`.
+- On non-Windows shells (PowerShell, macOS, Linux), adjust the virtual environment activation command accordingly.
+
 ## Copyright and License
 
 No part of this series may be reproduced, distributed, or transmitted in any form or by any means, including
 photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the author,
 except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by
-copyright law.
-For permission requests, contact the author.
+copyright law. For permission requests, contact the author.
 
 The code provided in this series is for educational purposes only and should be used with caution.
 The author is not responsible for any misuse of the code provided.

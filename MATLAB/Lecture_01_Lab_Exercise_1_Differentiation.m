@@ -5,17 +5,18 @@
 % ===========================================================================
 %
 % Author: Hossam Magdy Balaha
-% Initial Creation Date: May 14th, 2025
-% Last Modification Date: May 26th, 2025
 % Permissions and Citation: Refer to the README file.
+
+% This script computes the symbolic derivative of a polynomial and plots both the
+% original function and its derivative for comparison and instruction.
 
 % Import necessary toolboxes (Symbolic Math Toolbox is required for symbolic computations).
 syms x;  % Define the symbolic variable 'x'.
 
-% Define the function f(x) = x^3 + 2x^2 - 5x + 1.
+% Define the function f(x) = x^3 + 2x^2 - 5x + 1 as a symbolic expression.
 f = x^3 + 2*x^2 - 5*x + 1;
 
-% Compute the derivative of the function f(x).
+% Compute the derivative of the function f(x) using symbolic differentiation for exact results.
 fPrime = diff(f, x);  % Differentiate f(x) with respect to x.
 
 disp('Function:'); 
@@ -23,23 +24,23 @@ disp(f);  % Display the symbolic function.
 disp('Derivative:'); 
 disp(fPrime);  % Display the symbolic derivative.
 
-% Generate x values for plotting over the range [-5, 5] with 500 points.
+% Generate x values for plotting over the range [-5, 5] with 500 points for a smooth visual representation.
 xVals = linspace(-5, 5, 500)';  % Create an array of 500 evenly spaced values between -5 and 5.
 
-% Convert the symbolic functions f(x) and f'(x) into numerical functions for evaluation.
-fFunc = matlabFunction(f);  % Convert f(x) to a numerical function.
+% Convert the symbolic functions f(x) and f'(x) into numerical functions for vectorized evaluation.
+fFunc = matlabFunction(f);  % Convert f(x) to a numerical function handle.
 fVals = fFunc(xVals);  % Evaluate f(x) at each point in xVals.
 
-fPrimeFunc = matlabFunction(fPrime);  % Convert f'(x) to a numerical function.
+fPrimeFunc = matlabFunction(fPrime);  % Convert f'(x) to a numerical function handle.
 fPrimeVals = fPrimeFunc(xVals);  % Evaluate f'(x) at each point in xVals.
 
-% Plot the original function f(x) and its derivative f'(x).
-figure;  % Create a new figure.
+% Plot the original function f(x) and its derivative f'(x) on the same figure to observe slopes and critical points.
+figure;  % Create a new figure window.
 plot(xVals, fVals, 'Color', 'red', 'LineWidth', 1.5); % Plot f(x) in red.
 hold on;  
 plot(xVals, fPrimeVals, 'Color', 'blue', 'LineStyle', '--', 'LineWidth', 1.5);  % Plot f'(x) in blue (dashed).
 
-% Add title, axis labels, grid, and legend.
+% Add title, axis labels, grid, and legend to the plot for clarity.
 title('Function and Its Derivative');
 xlabel('x');
 ylabel('f(x) and f''(x)');

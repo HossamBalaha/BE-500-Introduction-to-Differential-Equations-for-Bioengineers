@@ -5,10 +5,11 @@
         ╩ ╩└─┘└─┘└─┘┴ ┴┴ ┴  ╩ ╩┴ ┴└─┘─┴┘ ┴   ╚═╝┴ ┴┴─┘┴ ┴┴ ┴┴ ┴
 ========================================================================
 # Author: Hossam Magdy Balaha
-# Initial Creation Date: May 14th, 2025
-# Last Modification Date: May 26th, 2025
 # Permissions and Citation: Refer to the README file.
 '''
+
+# This script computes the symbolic derivative of a polynomial and plots both the
+# original function and its derivative for visual comparison and learning purposes.
 
 # Import necessary libraries.
 import numpy as np  # Library for numerical operations.
@@ -19,23 +20,23 @@ from sympy import symbols, diff, lambdify  # Library for symbolic mathematics.
 x = symbols("x")  # Create a symbolic variable 'x'.
 f = x ** 3 + 2 * x ** 2 - 5 * x + 1  # Define the polynomial function f(x).
 
-# Compute the derivative of the function f(x).
+# Compute the derivative of the function f(x) using symbolic differentiation for exact results.
 fPrime = diff(f, x)  # Use the diff() function to compute the derivative f'(x).
 print("Function:", f)  # Print the symbolic function f(x).
 print("Derivative:", fPrime)  # Print the symbolic derivative of f(x).
 
-# Generate x values for plotting over the range [-5, 5] with 500 points.
+# Generate x values for plotting over the range [-5, 5] with 500 points for a smooth curve.
 xVals = np.linspace(-5, 5, 500)  # Create an array of 500 evenly spaced values between -5 and 5.
 
-# Convert the symbolic function f(x) into a numerical function for evaluation.
+# Convert the symbolic function f(x) into a numerical function for vectorized evaluation with NumPy.
 fFunc = lambdify(x, f, "numpy")  # Convert the symbolic f(x) to a numerical function.
 fVals = fFunc(xVals)  # Evaluate f(x) at each point in xVals.
 
-# Convert the symbolic derivative f'(x) into a numerical function for evaluation.
+# Convert the symbolic derivative f'(x) into a numerical function for plotting and analysis.
 fPrimeFunc = lambdify(x, fPrime, "numpy")  # Convert the symbolic f'(x) to a numerical function.
 fPrimeVals = fPrimeFunc(xVals)  # Evaluate f'(x) at each point in xVals.
 
-# Plot the original function f(x) and its derivative f'(x).
+# Plot the original function f(x) and its derivative f'(x) on the same axes to compare behavior and critical points.
 plt.figure(figsize=(10, 5))  # Create a new figure with a specified size.
 plt.plot(xVals, fVals, label="f(x)", color="orange")  # Plot f(x) with a label and orange color.
 plt.plot(xVals, fPrimeVals, label="f'(x)", color="blue", linestyle="--")  # Plot f'(x) with a dashed blue line.
