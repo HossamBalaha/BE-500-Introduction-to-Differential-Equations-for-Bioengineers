@@ -31,12 +31,12 @@ future research and innovation in the field.
 
 ## Table of Contents.
 
-- [Full Playlist and Videos](#full-playlist-and-videos).
-- [Code](#code).
-- [Requirements](#requirements).
+- [Full Playlist and Videos](#full-playlist-and-videos)
+- [Code](#code)
+- [Requirements](#requirements)
 - [Usage](#usage).
-- [Copyright and License](#copyright-and-license).
-- [Contact](#contact).
+- [Copyright and License](#copyright-and-license)
+- [Contact](#contact)
 
 ## Full Playlist and Videos
 
