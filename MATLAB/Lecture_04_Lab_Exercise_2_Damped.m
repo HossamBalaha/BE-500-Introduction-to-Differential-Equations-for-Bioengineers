@@ -5,8 +5,6 @@
 % ===========================================================================
 %
 % Author: Hossam Magdy Balaha
-% Initial Creation Date: June 2nd, 2025
-% Last Modification Date: June 2nd, 2025
 % Permissions and Citation: Refer to the README file.
 
 % Underdamped:
@@ -32,10 +30,10 @@ zeta = gamma / omega0; % Calculate the damping ratio.
 A = 1.0; % Set the amplitude of oscillation.
 B = 0.5; % Set the second amplitude (for phase shift).
 
-% Generate 1000 time points from 0 to 25 seconds.
+% Generate a fine time vector for plotting the response over a longer window.
 t = linspace(0, 25, 1000);
 
-% Display system parameters.
+% Display chosen parameters for user verification.
 fprintf('Parameters:\n');
 fprintf('Natural Frequency (omega0): %.4f rad/s\n', omega0);
 fprintf('Damping Coefficient (gamma): %.4f\n', gamma);
@@ -43,8 +41,9 @@ fprintf('Damping Ratio (zeta): %.4f\n', zeta);
 fprintf('Amplitude (A): %.1f\n', A);
 fprintf('Phase Shift Amplitude (B): %.1f\n', B);
 
-% Underdamped case: zeta < 1.
+% Choose the analytical expression based on the damping ratio and compute response.
 if zeta < 1
+    % Underdamped: decaying sinusoid with damped natural frequency.
     fprintf('\nUnderdamped Oscillation\n');
     fprintf('Solution: x(t) = exp(-gamma * t) * (A * cos(omegad * t) + B * sin(omegad * t))\n');
     fprintf('where omegad = sqrt(omega0^2 - gamma^2) is the damped natural frequency.\n');
@@ -53,16 +52,16 @@ if zeta < 1
     omegad = sqrt(omega0^2 - gamma^2); % Calculate the damped natural frequency.
     x = exp(-gamma * t) .* (A * cos(omegad * t) + B * sin(omegad * t)); % Compute displacement.
 
-% Critically damped case: zeta == 1.
 elseif zeta == 1
+    % Critically damped: fastest return to equilibrium without oscillation.
     fprintf('\nCritically Damped Oscillation\n');
     fprintf('Solution: x(t) = (A + B * t) * exp(-gamma * t)\n');
     fprintf('where A and B are constants determined by initial conditions.\n');
 
     x = (A + B * t) .* exp(-gamma * t); % Compute displacement.
 
-% Overdamped case: zeta > 1.
 else
+    % Overdamped: non-oscillatory sum of two decaying exponentials.
     fprintf('\nOverdamped Oscillation\n');
     fprintf('Solution: x(t) = A * exp(r1 * t) + B * exp(r2 * t)\n');
     fprintf('where r1 and r2 are the roots of the characteristic equation and are real, distinct, and negative.\n');
@@ -74,7 +73,7 @@ else
     x = A * exp(r1 * t) + B * exp(r2 * t); % Compute displacement.
 end
 
-% Plotting section.
+% Plotting section: plot the computed response and save the result as PNG.
 figure; % Create a new figure.
 plot(t, x, 'b', 'LineWidth', 1.5); % Plot displacement vs. time.
 title('Damped Oscillation'); % Set the plot title.
@@ -85,5 +84,5 @@ legend('Displacement x(t)', 'Location', 'Best'); % Show legend.
 set(gca, 'FontSize', 12); % Set font size for axis labels.
 axis tight; % Adjust axis limits to fit data tightly.
 
-% Save the plot as a PNG file.
+% Save the plot as a PNG file for lecture materials.
 saveas(gcf, 'Lecture_04_Lab_Exercise_2_Damped.png');

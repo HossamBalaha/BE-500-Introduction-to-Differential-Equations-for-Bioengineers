@@ -5,8 +5,6 @@
         ╩ ╩└─┘└─┘└─┘┴ ┴┴ ┴  ╩ ╩┴ ┴└─┘─┴┘ ┴   ╚═╝┴ ┴┴─┘┴ ┴┴ ┴┴ ┴
 ========================================================================
 # Author: Hossam Magdy Balaha
-# Initial Creation Date: June 10th, 2025
-# Last Modification Date: June 10th, 2025
 # Permissions and Citation: Refer to the README file.
 '''
 
@@ -39,19 +37,23 @@ def KneeModel(t, y, c, k, F0=0.0, omegaF=0.0):
   return [dxdt, dvdt]
 
 
+# Physical parameters for the knee model: mass, damping, stiffness and forcing.
 m = 1.0  # Mass of the knee joint.
 c = 0.5  # Damping coefficient.
 k = 4.0  # Spring constant.
 F0 = 2.0  # Forcing amplitude.
-omega0 = 3  # Natural frequency of the system.
+omega0 = 3  # Natural frequency of the forcing function.
+
 y0 = [0.1, 0.0]  # Initial displacement and velocity.
+
 tSpan = (0, 50)  # Time span for the simulation.
-# Create a time vector for plotting.
+# Create a grid for plotting the analytical and numerical solutions.
 tEval = np.linspace(*tSpan, 2500)
 
 # ==============================================================
 # ==================== Analytical Solution =====================
 # ==============================================================
+# Combine homogeneous and particular parts pre-derived for demonstration.
 partA = np.exp(-0.25 * tEval) * (0.467 * np.cos(1.984 * tEval) - 0.107 * np.sin(1.984 * tEval))
 partB = -0.367 * np.cos(3 * tEval) + 0.11 * np.sin(3 * tEval)
 analyticalSolution = partA + partB  # Combine the parts to get the analytical solution.
@@ -59,6 +61,7 @@ analyticalSolution = partA + partB  # Combine the parts to get the analytical so
 # ==============================================================
 # ===================== Numerical Solution =====================
 # ==============================================================
+# Numerically integrate the ODE using solve_ivp and the KneeModel RHS.
 numericalSolution = solve_ivp(
   lambda t, y: KneeModel(
     t,  # Unpack the time.
@@ -74,11 +77,11 @@ numericalSolution = solve_ivp(
 )
 # ==============================================================
 
-# Create a figure for the plot with specified size.
+# Create a figure and plot both analytical and numerical solutions for comparison.
 plt.figure(figsize=(10, 6))
-
-# Plot the analytical solution.
+# Plot the analytical solution as a solid black line.
 plt.plot(tEval, analyticalSolution, label="Analytical Solution", linewidth=2, color="black")
+# Plot the numerical solution (displacement) as a dashed red line.
 plt.plot(
   numericalSolution.t, numericalSolution.y[0],
   label="Numerical Solution", linewidth=2, color="red", linestyle="--"
@@ -91,8 +94,8 @@ plt.legend()  # Show the legend on the plot.
 plt.tight_layout()  # Adjust the layout to prevent overlap of labels and titles.
 plt.title("Knee Model: Analytical vs Numerical Solution")  # Set the title of the plot.
 
-# Save the plot as a PNG file with high resolution.
+# Save the figure to a PNG file for inclusion in lecture notes.
 plt.savefig("Lecture_05_Lab_Exercise_1_Knee.png", dpi=300, bbox_inches="tight")
 
-# Display the plot.
+# Display the plot interactively.
 plt.show()

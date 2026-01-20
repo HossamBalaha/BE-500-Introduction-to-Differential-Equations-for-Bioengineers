@@ -5,8 +5,6 @@
         ╩ ╩└─┘└─┘└─┘┴ ┴┴ ┴  ╩ ╩┴ ┴└─┘─┴┘ ┴   ╚═╝┴ ┴┴─┘┴ ┴┴ ┴┴ ┴
 ========================================================================
 # Author: Hossam Magdy Balaha
-# Initial Creation Date: June 25th, 2025
-# Last Modification Date: June 25th, 2025
 # Permissions and Citation: Refer to the README file.
 """
 

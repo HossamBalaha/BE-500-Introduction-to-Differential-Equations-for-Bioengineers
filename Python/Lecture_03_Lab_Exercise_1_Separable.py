@@ -5,8 +5,6 @@
         ╩ ╩└─┘└─┘└─┘┴ ┴┴ ┴  ╩ ╩┴ ┴└─┘─┴┘ ┴   ╚═╝┴ ┴┴─┘┴ ┴┴ ┴┴ ┴
 ========================================================================
 # Author: Hossam Magdy Balaha
-# Initial Creation Date: May 26th, 2025
-# Last Modification Date: June 4th, 2025
 # Permissions and Citation: Refer to the README file.
 '''
 
@@ -18,29 +16,35 @@ from sympy import symbols, Function, dsolve, solve
 
 
 # Define the separable equation as a function to be used by the solver.
+# Inputs: x (float) independent variable, y (float) dependent variable
+# Output: dy/dx = x * y (float)
 def SeparableEquation(x, y):
   return x * y
 
 
 # Set the initial condition y(0) = 1 as a list.
+# Using a list matches the signature expected by solve_ivp for vector-valued y.
 x0 = 0
 y0 = [1]
 
-x = symbols("x")  # Define a symbol 't' for time or independent variable.
-# Define a function 'y' that depends on 't'.
+# Define symbolic variable for analytical solution steps.
+# Used only for deriving and demonstrating the closed-form solution.
+x = symbols("x")  # Define a symbol 'x' for independent variable.
+# Define a function 'y' that depends on 'x'.
 y = Function("y")(x)
 # Define a constant of integration 'C1' for the solution.
 C1 = symbols("C1")
 
-# Define the separable differential.
+# Define the separable differential symbolic expression (dy/dx - x*y = 0).
+# This expression is passed to sympy.dsolve to compute the general solution symbolically.
 separableEquation = y.diff(x) - x * y
 
 # Solve the separable equation analytically using dsolve from sympy.
+# `dsolve` returns a general solution containing the integration constant C1.
 analyticalSolution = dsolve(separableEquation, y)
 
 # This block is added to handle cases where the solution might be a list.
-# For example, dy/dx = x/y can have multiple solutions.
-# Check if the solution is a list.
+# For example, dy/dx = x/y can have multiple solutions; show options when present.
 if (isinstance(analyticalSolution, list)):
   print("Analytical Solution is a list, please pick one of the solutions.")
   print("Length of Analytical Solution:", len(analyticalSolution))
@@ -60,50 +64,47 @@ if (isinstance(analyticalSolution, list)):
 # Print the analytical solution to the console.
 print("Analytical General Solution:", analyticalSolution)
 
-# Solve the initial value problem using the analytical solution.
+# Apply the initial condition symbolically to determine the constant of integration.
+# `subs` applies the initial condition and `solve` isolates C1.
 analyticalSolution = analyticalSolution.subs({y: y0[0]})
-
-# Solve for the constant of integration C1 using the initial condition.
 constValue = solve(analyticalSolution.rhs.subs(x, x0) - y0[0], C1)[0]
 
-# Substitute the constant of integration C1 back into the analytical solution.
+# Substitute the constant of integration C1 back into the analytical solution
+# to obtain the specific solution matching the initial condition.
 print("Value of Constant:", constValue)
-
-# Create a specific solution by substituting the value of C1 into the analytical solution.
 specificSolution = analyticalSolution.subs(C1, constValue)
 
-# Print the analytical solution with the initial condition applied.
+# Print the analytical solution with the initial condition applied for verification.
 print("Analytical Specific Solution:", specificSolution)
 
-# Generate 100 points between 0 and 2 for the analytical solution.
+# Generate points where both the analytical and numerical solutions will be evaluated.
+# Choosing 100 points provides a smooth curve for plotting between 0 and 2.
 xAnalytical = np.linspace(0, 2, 100)
-# Compute the analytical solution at the generated points.
+# Evaluate the symbolic analytical solution on the numeric grid (convert to float array).
 yAnalytical = np.array([specificSolution.rhs.subs(x, val) for val in xAnalytical], dtype=float)
 
-# Solve the ODE numerically over the interval [0, 2] using solve_ivp and store the solution.
+# Solve the ODE numerically over the interval [0, 2] using SciPy's solve_ivp.
+# We use `t_eval` to get values at the same points used for plotting the analytical solution.
 sol = solve_ivp(
-  SeparableEquation,  # The function to solve.
-  [0, 2],  # The interval of integration.
-  y0,  # Initial condition.
-  t_eval=np.linspace(0, 2, 100),  # Points at which to store the computed solution.
+  SeparableEquation,  # The function to solve (callable f(t, y)).
+  [0, 2],  # The interval of integration [t0, tf].
+  y0,  # Initial condition as a list for compatibility with vector-valued solvers.
+  t_eval=np.linspace(0, 2, 100),  # Time points at which to store the computed solution.
 )
 
-# Plot the numerical solution as red dots.
+# Plot the numerical solution points (red circles) to illustrate discrete solver output.
 plt.plot(sol.t, sol.y[0], "ro", label="Numerical Solution", markersize=4)
-# Plot the analytical solution as a blue line.
+# Plot the continuous analytical solution (blue line) for comparison.
 plt.plot(xAnalytical, yAnalytical, label="Analytical Solution", color="blue", linewidth=1.5)
 
-# Label the x-axis as 'x'.
+# Label the axes and add title and legend to make the figure self-contained.
 plt.xlabel("x")
 # Label the y-axis as 'y'.
 plt.ylabel("y")
-# Set the plot title.
 plt.title("Solving Separable Equation: Analytical vs. Numerical.")
-# Display the legend to distinguish between solutions.
 plt.legend()
-# Add a grid to the plot for better readability.
 plt.grid()
 
-# Save the plot as a PNG file with high resolution.
+# Save the figure: PNG at high resolution suitable for lecture slides.
 plt.savefig("Lecture_03_Lab_Exercise_1_Separable.png", dpi=300, bbox_inches="tight")
-plt.show()  # Display the plot.
+plt.show()  # Display the plot interactively.

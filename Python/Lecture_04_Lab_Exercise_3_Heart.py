@@ -5,8 +5,6 @@
         ╩ ╩└─┘└─┘└─┘┴ ┴┴ ┴  ╩ ╩┴ ┴└─┘─┴┘ ┴   ╚═╝┴ ┴┴─┘┴ ┴┴ ┴┴ ┴
 ========================================================================
 # Author: Hossam Magdy Balaha
-# Initial Creation Date: June 2nd, 2025
-# Last Modification Date: June 2nd, 2025
 # Permissions and Citation: Refer to the README file.
 '''
 
@@ -39,6 +37,7 @@ def HeartOscillations(t, y, omega0, gamma, F0=0.0, omegaF=0.0):
   return [dxdt, dvdt]
 
 
+# Simulation parameters: natural frequency, initial state, and time span.
 omega0 = 2 * np.pi  # Natural frequency (1 Hz).
 y0 = [1.0, 0.0]  # Initial displacement and velocity.
 tSpan = (0, 20)  # Time span for the simulation.
@@ -46,7 +45,7 @@ tSpan = (0, 20)  # Time span for the simulation.
 tEval = np.linspace(*tSpan, 1000)
 colors = ["gray", "green", "red", "orange", "purple"]  # Colors for plotting.
 
-# Set the parameters for different oscillation types.
+# Set the parameters for different oscillation types (gamma, forcing amplitude, forcing frequency).
 valuesDict = {
   "Undamped"          : {"Gamma": 0.0, "F0": 0.0, "OmegaF": 0.0},
   "Underdamped"       : {"Gamma": 0.5, "F0": 0.0, "OmegaF": 0.0},
@@ -112,10 +111,10 @@ for key, params in valuesDict.items():
   solutions[key] = sol
 # ==============================================================
 
-# Plot the results for each oscillation type.
+# Plot analytical and numerical results side-by-side for direct comparison.
 plt.figure(figsize=(16, 8))
 
-plt.subplot(1, 2, 1)  # Create a subplot for the first part of the plot.
+plt.subplot(1, 2, 1)  # Create a subplot for the analytical solutions.
 
 # Plot the analytical solution for undamped oscillation.
 plt.plot(tEval, xUndamped, label="Undamped", linewidth=2, color=colors[0])
@@ -133,7 +132,7 @@ plt.legend()  # Show the legend on the plot.
 plt.tight_layout()  # Adjust the layout to prevent overlap of labels and titles.
 plt.title("Oscillations of the Heart (Analytical Solution)")  # Set the title for the plot.
 
-plt.subplot(1, 2, 2)  # Create a subplot for the second part of the plot.
+plt.subplot(1, 2, 2)  # Create a subplot for the numerical results.
 
 # Plot the numerical solutions for each oscillation type.
 for i, (key, sol) in enumerate(solutions.items()):
@@ -147,8 +146,8 @@ plt.legend()  # Show the legend on the plot.
 plt.tight_layout()  # Adjust the layout to prevent overlap of labels and titles.
 plt.title("Oscillations of the Heart (Numerical Solutions)")  # Set the title for the plot.
 
-# Save the plot as a PNG file with high resolution.
+# Save the comparative plot as a PNG file for lecture material distribution.
 plt.savefig("Lecture_04_Lab_Exercise_3_Heart.png", dpi=300, bbox_inches="tight")
 
-# Display the plot.
+# Display the plot interactively.
 plt.show()

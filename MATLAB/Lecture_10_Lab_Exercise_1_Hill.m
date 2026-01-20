@@ -5,8 +5,6 @@
 % ===========================================================================
 %
 % Author: Hossam Magdy Balaha
-% Initial Creation Date: July 12th, 2025
-% Last Modification Date: July 12th, 2025
 % Permissions and Citation: Refer to the README file.
 
 clear; clc; close all;

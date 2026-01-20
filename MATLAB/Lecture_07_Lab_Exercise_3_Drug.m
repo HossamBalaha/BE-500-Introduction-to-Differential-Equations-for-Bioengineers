@@ -5,8 +5,6 @@
 % ===========================================================================
 %
 % Author: Hossam Magdy Balaha
-% Initial Creation Date: June 26th, 2025
-% Last Modification Date: June 26th, 2025
 % Permissions and Citation: Refer to the README file.
 
 % Define symbolic variables.

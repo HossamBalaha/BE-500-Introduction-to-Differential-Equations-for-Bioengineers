@@ -5,18 +5,16 @@
 % ===========================================================================
 %
 % Author: Hossam Magdy Balaha
-% Initial Creation Date: June 2nd, 2025
-% Last Modification Date: June 2nd, 2025
 % Permissions and Citation: Refer to the README file.
 
 % Set the parameters.
 omega0 = 2 * pi; % Natural frequency (1 Hz, radians per second).
 A = 1.0; % Amplitude of oscillation.
 
-% Generate 1000 time points from 0 to 5 seconds.
+% Generate 1000 time points for high-resolution plotting.
 t = linspace(0, 5, 1000);
 
-% Calculate displacement x(t) for undamped oscillation.
+% Calculate displacement x(t) for two cases of phase/amplitude B.
 % Case 1: B = 0.0 (no phase shift).
 B1 = 0.0;
 x1 = A * cos(omega0 * t) + B1 * sin(omega0 * t);
@@ -39,5 +37,5 @@ grid on;
 axis tight; % Adjust axis limits to fit data tightly.
 hold off;
 
-% Save the plot as a PNG file.
+% Save the plot as a PNG file for lecture materials.
 saveas(gcf, 'Lecture_04_Lab_Exercise_1_Undamped.png');
