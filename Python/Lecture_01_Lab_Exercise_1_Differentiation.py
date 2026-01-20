@@ -15,7 +15,6 @@
 import numpy as np  # Library for numerical operations.
 import matplotlib.pyplot as plt  # Library for creating plots.
 from sympy import symbols, diff, lambdify  # Library for symbolic mathematics.
-from sympy import exp, sin, cos
 
 # Define the variable and the function f(x) = x^3 + 2x^2 - 5x + 1.
 x = symbols("x")  # Create a symbolic variable 'x'.
